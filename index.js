@@ -1,10 +1,5 @@
-// JS render of Element
-/* const heading = document.createElement("h1");
-heading.innerHTML = "heading";
-const root = document.getElementById("root")
-root.appendChild(heading); */
-
-// React render of element
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const heading1 = React.createElement(
   "h1",
