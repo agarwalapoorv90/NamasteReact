@@ -1,25 +1,55 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading1 = React.createElement(
-  "h1",
+/**
+ * <div class="title">
+ *  <h1>Hello</h1>
+ *  <h2>Apoorv's</h2>
+ *  <h3>World</h3>
+ * </div>
+ */
+
+/*
+const heading1 = React.createElement("h1", { key: "h1" }, "Hello");
+const heading2 = React.createElement("h2", { key: "h2" }, "Apoorv's");
+const heading3 = React.createElement("h3", { key: "h3" }, "World");
+
+const container = React.createElement(
+  "div",
   {
-    id: "head1",
-    hello: "world"
+    className: "title",
   },
-  "Hello Heading 1"
+  [heading1, heading2, heading3]
 );
+*/
 
-const heading2 = React.createElement(
-  "h2",
-  {
-    id: "head2",
-  },
-  "Hello Heading 2"
+/*
+const container = (
+  <div className="title">
+    <h1>Hello</h1>
+    <h2>Apoorv's</h2>
+    <h3>World</h3>
+  </div>
 );
+*/
 
-const heading = React.createElement("div", null, [heading1, heading2]);
+const heading = <h1>Hi</h1>;
 
-const domeNode = document.getElementById("root");
-const root = ReactDOM.createRoot(domeNode);
-root.render(heading);
+const Trunk = (props) => {
+  return <div className="trunk">{props.children}</div>;
+};
+
+const Container = () => {
+  return (
+    <div className="title">
+      <h1>Hello</h1>
+      <h2>Apoorv's</h2>
+      <h3>World</h3>
+      <Trunk>
+        {heading}
+      </Trunk>
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Container />);
