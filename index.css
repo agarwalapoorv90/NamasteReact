@@ -20,12 +20,14 @@
 
 .restaurant-list {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .restaurant-card {
     margin: 10px;
     padding: 10px;
     border: 1px solid black;
+    width: 17%;
 }
 
 .restaurant-card > img {
