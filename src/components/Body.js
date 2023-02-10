@@ -1,21 +1,16 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-
-const filterRestaurantList = (restaurantList, searchInput) => {
-  return restaurantList.filter((restaurant) => {
-    return restaurant?.data?.name
-      .toLowerCase()
-      .includes(searchInput.toLowerCase());
-  });
-};
+import { filterRestaurantList } from "../utils/helper";
+import { RESTAURANT_LIST_SWIGGY_API } from "../config";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
-  const api =
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&page_type=DESKTOP_WEB_LISTING";
   const [searchTxt, setSearchTxt] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
+  const isOnline = useOnline();
 
   useEffect(() => {
     getAllRestaurants();
@@ -23,7 +18,7 @@ const Body = () => {
 
   async function getAllRestaurants() {
     try {
-      const response = await fetch(api);
+      const response = await fetch(RESTAURANT_LIST_SWIGGY_API);
       const data = await response.json();
       const relData = data.data?.cards[2]?.data?.data?.cards;
       setAllRestaurants(relData);
@@ -31,6 +26,10 @@ const Body = () => {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  if (!isOnline) {
+    return <h1>Please check your internet connection!!</h1>;
   }
 
   return allRestaurants?.length === 0 ? (
