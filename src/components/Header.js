@@ -7,22 +7,22 @@ const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const isOnline = useOnline();
   return (
-    <div className="header">
+    <div className="flex justify-between bg-pink-100">
       <div className="title">
         <Link to="/">
-          <img className="logo" src={Logo} alt="Food Logo" />
+          <img className="p-1 h-24" src={Logo} alt="Food Logo" />
         </Link>
       </div>
       <div className="nav-items">
-        <ul>
-          <li>
+        <ul className="flex py-10">
+          <li className="px-2">
             <Link to="/">Home</Link>
           </li>
-          <li>Categories</li>
-          <li>
+          <li className="px-2">Categories</li>
+          <li className="px-2">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/instamart">Instamart</Link>
           </li>
         </ul>

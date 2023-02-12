@@ -36,14 +36,15 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="search-container p-5 bg-pink-50 my-5">
         <input
-          className="search"
+          className="focus:bg-green-200 p-2 m-2"
           value={searchTxt}
           placeholder="Search"
           onChange={(e) => setSearchTxt(e.target.value)}
         />
         <button
+          className="p-2 m-2 bg-purple-900 hover:bg-gray-500 text-white rounded-md"
           onClick={() => {
             setFilteredRestaurants(
               filterRestaurantList(allRestaurants, searchTxt)
@@ -53,7 +54,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => {
           return (
             <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
