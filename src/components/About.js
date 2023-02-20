@@ -1,14 +1,19 @@
 import Profile from "./Profile";
 import Projects from "./Projects";
+import UserContext from "../utils/UserContext";
 
 const About = () => {
   console.log("About - Render");
   return (
-    <div className="about-us">
-      <h1>About</h1>
-      <Profile name="Apoorv" />
-      <Projects name="HCL" />
-    </div>
+    <UserContext.Consumer>
+      {({ user }) => (
+        <div className="about-us">
+          <h1>About {user.name}</h1>
+          <Profile name="Apoorv" />
+          <Projects name="HCL" />
+        </div>
+      )}
+    </UserContext.Consumer>
   );
 };
 
