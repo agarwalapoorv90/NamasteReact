@@ -1,14 +1,16 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { filterRestaurantList } from "../utils/helper";
 import { RESTAURANT_LIST_SWIGGY_API } from "../config";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [searchTxt, setSearchTxt] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const { user, setUser } = useContext(UserContext);
 
   const isOnline = useOnline();
 
@@ -53,6 +55,12 @@ const Body = () => {
         >
           Search
         </button>
+        <input
+          className="focus:bg-green-200 p-2 m-2"
+          value={user.name}
+          placeholder="Name"
+          onChange={(e) => setUser({ ...user, name: e.target.value })}
+        />
       </div>
       <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => {

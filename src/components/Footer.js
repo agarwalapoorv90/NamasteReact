@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+
 export const Footer = () => {
-  return <h1>Footer</h1>;
+  const { user } = useContext(UserContext);
+  return <h1>This site is developed by {user.name}.</h1>;
 };
