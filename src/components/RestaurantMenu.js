@@ -1,5 +1,7 @@
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { IMG_URL_CDN } from "../config";
+import { IMG_URL_CDN, restaurantMenuList } from "../config";
+import { addItem } from "../utils/cartSlice";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import Shimmer from "./Shimmer";
 
@@ -7,6 +9,11 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const restMenu = useRestaurantMenu(resId);
+
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   return !restMenu ? (
     <Shimmer />
@@ -20,8 +27,18 @@ const RestaurantMenu = () => {
         </div>
         <div>
           <ul className="restaurant-menu-list">
-            {Object.values(restMenu.menu.items).map((item) => {
-              return <li key={item.id}>{item.name}</li>;
+            {restaurantMenuList.map((item) => {
+              return (
+                <li key={item.id}>
+                  {item.dish}
+                  <button
+                    className="p-1 bg-green-50"
+                    onClick={() => handleAddItem(item)}
+                  >
+                    Add Item
+                  </button>
+                </li>
+              );
             })}
           </ul>
         </div>

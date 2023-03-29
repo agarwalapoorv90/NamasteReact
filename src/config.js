@@ -748,4 +748,97 @@ export const IMG_URL_CDN =
 export const RESTAURANT_LIST_SWIGGY_API =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&page_type=DESKTOP_WEB_LISTING";
 export const RESTAURANT_DETAIL_SWIGGY_API =
-  "https://www.swiggy.com/dapi/menu/v4/full?lat=28.5355161&lng=77.3910265&menuId=";
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5355161&lng=77.3910265&restaurantId=";
+
+export const restaurantMenuList = [
+  {
+    dish: "Pasta alla norma",
+    category: "Primi piatti",
+    price: 5.9,
+    id: 1,
+  },
+  {
+    dish: "Pasta alla carbonara",
+    category: "Primi piatti",
+    price: 6.9,
+    id: 2,
+  },
+  {
+    dish: "Pasta al pesto",
+    category: "Primi piatti",
+    price: 7.9,
+    id: 3,
+  },
+  {
+    dish: "Carne alla pizzaiola",
+    category: "Secondi piatti",
+    price: 5.5,
+    id: 4,
+  },
+  {
+    dish: "Parmigiana",
+    category: "Secondi piatti",
+    price: 6.5,
+    id: 5,
+  },
+  {
+    dish: "Pollo al forno",
+    category: "Secondi piatti",
+    price: 7.5,
+    id: 6,
+  },
+  {
+    dish: "Patate al forno",
+    category: "Contorni",
+    price: 4.5,
+    id: 7,
+  },
+  {
+    dish: "Melanzane in agrodolce",
+    category: "Contorni",
+    price: 5.5,
+    id: 8,
+  },
+  {
+    dish: "Funghi misti",
+    category: "Contorni",
+    price: 6.5,
+    id: 9,
+  },
+  {
+    dish: "Tiramisu",
+    category: "Dessert",
+    price: 4.5,
+    id: 10,
+  },
+  {
+    dish: "Profiteroles",
+    category: "Dessert",
+    price: 5.5,
+    id: 11,
+  },
+  {
+    dish: "Pastiera Napoletana",
+    category: "Dessert",
+    price: 6.5,
+    id: 12,
+  },
+  {
+    dish: "Acqua",
+    category: "Bibite",
+    price: 2.5,
+    id: 13,
+  },
+  {
+    dish: "Coca Cola",
+    category: "Bibite",
+    price: 3.5,
+    id: 14,
+  },
+  {
+    dish: "Vino",
+    category: "Bibite",
+    price: 4.5,
+    id: 15,
+  },
+];
